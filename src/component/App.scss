@@ -108,7 +108,7 @@
         width: 35px;
         overflow: hidden;
 
-        a{
+        span{
             display: inline-block;
             height: 35px;
             width: 35px;
@@ -130,7 +130,7 @@
             }
         }
     }
-    .lined + .opts a{
+    .lined + .opts span{
         transform: translateY(-35px);
     }
     .emoji-dashboard{

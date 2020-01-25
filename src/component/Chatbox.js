@@ -51,7 +51,7 @@ class Chatbox extends React.Component {
         this.listen();
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.emit();
     }
     updateSettings = (flag) => {

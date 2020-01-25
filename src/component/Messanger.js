@@ -47,7 +47,7 @@ class Messanger extends React.Component {
         }
     };
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.listen();
     }
 
@@ -124,7 +124,7 @@ class Messanger extends React.Component {
                                 <img id="profile-photo" src={this.props.selectedUser.profileLink} alt="profile icon" className="rounded-circle"/>
                             </div>
                             <div className="col-md-7 col-sm-7 col-8 comment rounded mb-2">
-                                <h4 className="m-0"><a >{this.props.selectedUser.userName}</a></h4>
+                                <h4 className="m-0"><span >{this.props.selectedUser.userName}</span></h4>
                                 <time className="text-white ml-3">{this.getTime(chat.timestamp)}</time>
                                 <p className="mb-0 text-white" dangerouslySetInnerHTML={this.createMarkup(chat.recieve)}></p>
                             </div>
@@ -134,7 +134,7 @@ class Messanger extends React.Component {
                         <li>
                             <div className="row comments mb-2">
                                 <div className="col-md-7 offset-md-2 col-sm-7 offset-sm-1 col-8 offset-1 comment rounded mb-2">
-                                    <h4 className="m-0"><a >{loginUser.userName}</a></h4>
+                                    <h4 className="m-0"><span >{loginUser.userName}</span></h4>
                                     <time className="text-white ml-3">{this.getTime(chat.timestamp)}</time>
                                     <p className="mb-0 text-white" dangerouslySetInnerHTML={this.createMarkup(chat.sent)}></p>
                                 </div>
@@ -166,7 +166,7 @@ class Messanger extends React.Component {
                                 <div id="input-chat" onKeyPress={this.submitMessage} className="input" contentEditable="true"></div>
                             </div>
                             <div className=" opts">
-                                <a onClick={this.submitMessage} className="send"></a>
+                                <span onClick={this.submitMessage} className="send"></span>
                             </div>
                         </div>
                     </div>
