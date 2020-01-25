@@ -145,12 +145,12 @@ class Settings extends React.Component {
                                 <div className="col-12  ">
                                     <div className="custom-control custom-radio custom-control-inline">
                                         <input type="radio" className="custom-control-input radio-opt" id="clock12" value="12hrs"
-                                               checked={this.state.timeFormat == "12hrs"} onChange={this.changeTimeFormat} />
+                                               checked={this.state.timeFormat === "12hrs"} onChange={this.changeTimeFormat} />
                                         <label className="custom-control-label radio-opt" htmlFor="clock12">12 Hours</label>
                                     </div>
                                     <div className="custom-control custom-radio custom-control-inline">
                                         <input type="radio" className="custom-control-input radio-opt" id="clock24" value="24hrs"
-                                               checked={this.state.timeFormat == "24hrs"} onChange={this.changeTimeFormat} />
+                                               checked={this.state.timeFormat === "24hrs"} onChange={this.changeTimeFormat} />
                                         <label className="custom-control-label radio-opt" htmlFor="clock24">24 Hours</label>
                                     </div>
                                 </div>
@@ -166,12 +166,12 @@ class Settings extends React.Component {
                                 <div className="col-12  ">
                                     <div className="custom-control custom-radio custom-control-inline">
                                         <input type="radio" className="custom-control-input radio-opt" id="send-opt-on" value='true'
-                                               checked={this.state.sendMsgCtrlEntr == 'true'} onChange={this.changeSendMethod} />
+                                               checked={this.state.sendMsgCtrlEntr === 'true'} onChange={this.changeSendMethod} />
                                         <label className="custom-control-label radio-opt" htmlFor="send-opt-on">On</label>
                                     </div>
                                     <div className="custom-control custom-radio custom-control-inline">
                                         <input type="radio" className="custom-control-input radio-opt" id="send-opt-off" value='false'
-                                               checked={this.state.sendMsgCtrlEntr == 'false'} onChange={this.changeSendMethod} />
+                                               checked={this.state.sendMsgCtrlEntr === 'false'} onChange={this.changeSendMethod} />
                                         <label className="custom-control-label radio-opt" htmlFor="send-opt-off">Off</label>
                                     </div>
                                 </div>

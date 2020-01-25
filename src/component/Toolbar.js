@@ -69,13 +69,13 @@ class Toolbar extends React.Component {
                         <li>
                             <div className="row comments mb-2">
                                 <div onClick={()=> this.goChatBoxPage(true)} className="col-md-7 col-sm-7 col-7 user-img">
-                                    <a href="javascript:void(0)"><img id="icon" src="./images/chatting.png" alt="profile icon" className="rounded-circle"/></a>
+                                    <a href="#"><img id="icon" src="./images/chatting.png" alt="profile icon" className="rounded-circle"/></a>
                                 </div>
                                 <div onClick={()=> this.optionSelection(false)} className={!this.state.openSettings ? defaultClassChat + ' option-selected' : defaultClassChat}>
-                                    <a href="javascript:void(0)" className="options"><span>Chat</span></a>
+                                    <a href="#" className="options"><span>Chat</span></a>
                                 </div>
                                 <div onClick={()=> this.optionSelection(true)} className={this.state.openSettings ? defaultClassSettings + ' option-selected' : defaultClassSettings}>
-                                    <a href="javascript:void(0)" className="options"><span>Settings</span></a>
+                                    <a href="#" className="options"><span>Settings</span></a>
                                 </div>
                             </div>
                         </li>

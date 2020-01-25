@@ -33,8 +33,8 @@ class UserSelection extends React.Component {
     renderUserList() {
         return this.props.contacts.map((user, index) => {
             return (
-                <React.Fragment>
-                    <li onClick={()=>this.selectUser(user)} className={this.state.theme.container.background === '#fff' ? 'users-list-block' : 'users-list-block-dark'} key={'userlist-'+index}>
+                <React.Fragment key={'userlist-'+index}>
+                    <li onClick={()=>this.selectUser(user)} className={this.state.theme.container.background === '#fff' ? 'users-list-block' : 'users-list-block-dark'}>
                         <div className="row comments mb-2">
                             <div className="col-md-2 col-sm-2 col-3 user-img">
                                 <img id="profile-photo+{index}" src={user.profileLink} alt="profile icon" className="rounded-circle"/>

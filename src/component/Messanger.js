@@ -31,7 +31,7 @@ class Messanger extends React.Component {
     }
 
     sendMsgCtrlEntr(e) {
-        return (JSON.parse(services.UPDATED_SETTINGS.sendMsgCtrlEntr) && e.type === 'keypress' && e.ctrlKey && e.which == 13);
+        return (JSON.parse(services.UPDATED_SETTINGS.sendMsgCtrlEntr) && e.type === 'keypress' && e.ctrlKey && e.which === 13);
     }
 
     submitMessage = (e) => {
@@ -106,7 +106,7 @@ class Messanger extends React.Component {
         if(timeFormat === '12hrs') {
             midday = "AM";
             midday = (hour >= 12) ? "PM" : "AM"; /* assigning AM/PM */
-            hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour); /* assigning hour in 12-hour format */
+            hour = (hour === 0) ? 12 : ((hour > 12) ? (hour - 12): hour); /* assigning hour in 12-hour format */
         }
 
         hour = this.updateTime(hour);
@@ -120,16 +120,16 @@ class Messanger extends React.Component {
         let self = this;
         const loginUser = self.props.loginUser;
 
-        return this.state.userChat.map((chat) => {
+        return this.state.userChat.map((chat, index) => {
             return (
-                <React.Fragment>
+                <React.Fragment key={'message-'+index}>
                     {chat.recieve && <li>
                         <div className="row comments mb-2">
                             <div className="col-md-2 col-sm-2 col-2 text-center user-img">
                                 <img id="profile-photo" src={this.props.selectedUser.profileLink} alt="profile icon" className="rounded-circle"/>
                             </div>
                             <div className="col-md-7 col-sm-7 col-8 comment rounded mb-2">
-                                <h4 className="m-0"><a href="javascript:void(0)">{this.props.selectedUser.userName}</a></h4>
+                                <h4 className="m-0"><a >{this.props.selectedUser.userName}</a></h4>
                                 <time className="text-white ml-3">{this.getTime(chat.timestamp)}</time>
                                 <p className="mb-0 text-white" dangerouslySetInnerHTML={this.createMarkup(chat.recieve)}></p>
                             </div>
@@ -139,7 +139,7 @@ class Messanger extends React.Component {
                         <li>
                             <div className="row comments mb-2">
                                 <div className="col-md-7 offset-md-2 col-sm-7 offset-sm-1 col-8 offset-1 comment rounded mb-2">
-                                    <h4 className="m-0"><a href="javascript:void(0)">{loginUser.userName}</a></h4>
+                                    <h4 className="m-0"><a >{loginUser.userName}</a></h4>
                                     <time className="text-white ml-3">{this.getTime(chat.timestamp)}</time>
                                     <p className="mb-0 text-white" dangerouslySetInnerHTML={this.createMarkup(chat.sent)}></p>
                                 </div>

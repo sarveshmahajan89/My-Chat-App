@@ -32,8 +32,8 @@ class LoginSelection extends React.Component {
     renderUserList() {
         return this.props.contacts.map((user, index) => {
             return (
-                <React.Fragment>
-                    <li onClick={()=>this.selectUser(user)} className="users-list-block" key={'userlist-'+index}>
+                <React.Fragment key={'userlist-'+index}>
+                    <li onClick={()=>this.selectUser(user)} className="users-list-block">
                         <div className="row comments mb-2">
                             <div className="col-md-3 col-sm-3 col-3 user-img">
                                 <img id="profile-photo+{index}" src={user.profileLink} alt="profile icon" className="rounded-circle"/>

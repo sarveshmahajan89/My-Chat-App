@@ -21,7 +21,6 @@ class Chatbox extends React.Component {
     };
 
     emit() {
-        let self = this;
         socket.emit('login', {userId: this.props.loginUser.email});
     }
 
