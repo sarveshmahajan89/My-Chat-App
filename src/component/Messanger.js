@@ -27,7 +27,6 @@ class Messanger extends React.Component {
         this.submitMessage = this.submitMessage.bind(this);
         this.handleValueChange = this.handleValueChange.bind(this);
         this.handleEmojiDashboard = this.handleEmojiDashboard.bind(this);
-        this.getSelectedEmoji = this.getSelectedEmoji.bind(this);
     }
 
     sendMsgCtrlEntr(e) {
@@ -57,10 +56,6 @@ class Messanger extends React.Component {
             showEmojiDashboard: !prevState.showEmojiDashboard
         }));
     }
-
-    getSelectedEmoji = (target) => {
-
-    };
 
     handleValueChange(event) {
         this.setState({
@@ -165,7 +160,7 @@ class Messanger extends React.Component {
                         </div>
                         <div className="row comment-box-main p-3 rounded-bottom chat-inp">
                             <div onClick={()=> this.handleEmojiDashboard()} className="emoji">
-                                {this.state.showEmojiDashboard && <EmojiDashboard getSelectedEmoji={this.getSelectedEmoji} />}
+                                {this.state.showEmojiDashboard && <EmojiDashboard />}
                             </div>
                             <div className="chat-input">
                                 <div id="input-chat" onKeyPress={this.submitMessage} className="input" contentEditable="true"></div>

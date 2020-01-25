@@ -16,7 +16,7 @@ class EmojiDashboard extends React.Component {
     renderEmoji() {
         return emojiObj.map((emoji, index) => {
             return (
-                <React.Fragment>
+                <React.Fragment key={'emoji-'+index}>
                     <li onClick={this.selectEmoji} key={'emoji-'+index} className="emoji" data-clipboard-text={emoji.text}><i className={emoji.class}></i></li>
                 </React.Fragment>
             );
