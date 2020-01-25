@@ -20,7 +20,7 @@ class Settings extends React.Component {
             timeFormat: services.IS_SETTINGS_CHANGED ? services.UPDATED_SETTINGS.timeFormat : services.DEFAULT_SETTINGS.timeFormat,
             sendMsgCtrlEntr: services.IS_SETTINGS_CHANGED ? services.UPDATED_SETTINGS.sendMsgCtrlEntr : services.DEFAULT_SETTINGS.sendMsgCtrlEntr,
             language: services.IS_SETTINGS_CHANGED ? services.UPDATED_SETTINGS.language : services.DEFAULT_SETTINGS.language,
-            userName: props.loginUser.userName,
+            userName: services.USER_NAME,
             theme: getTheme()
         };
         this.handleClick = this.handleClick.bind(this);
@@ -67,6 +67,9 @@ class Settings extends React.Component {
             userName: e.target.value
         });
     };
+    updateUserName = (e) => {
+        services.USER_NAME = e.target.value;
+    };
     changeTheme = (e) => {
         this.setState({
             themeRadio: e.target.value
@@ -107,7 +110,8 @@ class Settings extends React.Component {
                                     <img id="profile-photo" src={this.props.loginUser.profileLink} alt="profile icon" className="rounded-circle"/>
                                 </div>
                                 <div className="col-md-9 col-sm-9 col-9 mb-2 users-list pt-3">
-                                    <input type="text" id="user-name" name="username" className="" value={this.state.userName} onChange={this.changeName} />
+                                    <input type="text" id="user-name" name="username" className=""
+                                           value={this.state.userName} onChange={this.changeName} onBlur={this.updateUserName} />
                                 </div>
                             </div>
                         </li>

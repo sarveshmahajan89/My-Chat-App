@@ -14,12 +14,6 @@ app.use( (req, res, next) => {
     next();
 });
 
-app.get('/api/greeting', (req, res) => {
-  const name = req.query.name || 'World';
-  res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
-});
-
 let server = app.listen(3001);
 let io = require('socket.io').listen(server);
 

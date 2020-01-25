@@ -21,7 +21,8 @@ let services = {
             container: {background: '#334D5C', color: '#fff'},
             header: {background: '#112d3d', color: '#fff'}
         }
-    }
+    },
+    USER_NAME: ''
 };
 
 export default services;

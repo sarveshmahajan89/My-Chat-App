@@ -3,6 +3,7 @@ import "./App.scss";
 import LoginSelection from "./LoginSelection";
 import Chatbox from "./Chatbox";
 import openSocket from 'socket.io-client';
+import services from "./services";
 
 const socket = openSocket('http://localhost:3001');
 
@@ -35,6 +36,8 @@ class App extends React.Component {
 
   handleUserLogin = (loginUser) => {
     const availableUsers = this.state.contacts.filter((user) => user.email !== loginUser.email);
+    services.USER_NAME = loginUser.userName;
+
     this.setState({
         loginUser: loginUser,
         contacts: availableUsers
