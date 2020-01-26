@@ -3,6 +3,7 @@ import UserSelection from "./UserSelection";
 import Messanger from "./Messanger";
 import Toolbar from "./Toolbar";
 import openSocket from 'socket.io-client';
+import Toast from 'light-toast';
 
 const socket = openSocket('http://localhost:3001');
 
@@ -43,7 +44,7 @@ class Chatbox extends React.Component {
         });
         socket.on('userAlreadyLoggedIn', (user)=>{
             console.error(user.user + ' is already logged in');
-            alert(user + ' is already logged in');
+            Toast.fail(user.user + ' is already logged in, please refresh and try again with different user', 2500);
         });
     }
 

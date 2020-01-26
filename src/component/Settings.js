@@ -1,5 +1,6 @@
 import React from "react";
 import services from "./services";
+import Toast from 'light-toast';
 
 let getTheme = () => {
     let theme = {};
@@ -61,6 +62,7 @@ class Settings extends React.Component {
     reset = () => {
         this.props.updateSettings('reset');
         this.updateSettingPage({'theme': services.UPDATED_SETTINGS.theme});
+        Toast.success('Settings reset to default', 1000);
     };
     changeName = (e) => {
         this.setState({
@@ -69,6 +71,7 @@ class Settings extends React.Component {
     };
     updateUserName = (e) => {
         services.USER_NAME = e.target.value;
+        Toast.success('User name changed to: '+e.target.value, 1000);
     };
     changeTheme = (e) => {
         this.setState({
@@ -76,6 +79,7 @@ class Settings extends React.Component {
         });
         this.props.updateSettings({'theme': e.target.value});
         this.updateSettingPage({'theme': e.target.value});
+        Toast.success('Theme changed to: '+e.target.value, 1000);
     };
     changeTimeFormat = (e) => {
         this.setState({
@@ -83,6 +87,7 @@ class Settings extends React.Component {
         });
         this.props.updateSettings({'timeFormat': e.target.value});
         this.updateSettingPage({'timeFormat': e.target.value});
+        Toast.success('Time format changed to: '+e.target.value, 1000);
     };
     changeSendMethod = (e) => {
         this.setState({
@@ -90,6 +95,7 @@ class Settings extends React.Component {
         });
         this.props.updateSettings({'sendMsgCtrlEntr': e.target.value});
         this.updateSettingPage({'sendMsgCtrlEntr': e.target.value});
+        Toast.success('Send option updated to: '+ (JSON.parse(e.target.value) ? 'CTRL + ENTER' : 'Mouse click'), 1000);
     };
     render() {
         return (
