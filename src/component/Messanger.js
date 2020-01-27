@@ -35,7 +35,7 @@ class Messanger extends React.Component {
 
     submitMessage = (e) => {
         if(e.type === 'click' || this.sendMsgCtrlEntr(e)) {
-            const newMessage = {'sent': document.getElementById('input-chat').innerHTML};
+            const newMessage = {'sent': document.getElementById('input-chat').innerHTML, 'timestamp': String(Date.now())};
             if(newMessage) {
                 var reqObj = {'sourceUser': this.props.loginUser.email, 'destinationUser': this.props.selectedUser.email, 'message': newMessage.sent};
                 this.setState({
